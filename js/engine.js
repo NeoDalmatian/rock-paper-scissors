@@ -1,27 +1,29 @@
 
-let rock = "Rock";
-let paper = "Paper";
-let scissors = "Scissors";
+let rock = 1;
+let paper = 2;
+let scissors = 3;
 
-function computerPlay ( randomNumber = Math.floor(Math.random() * 3) + 1 ) {
+function computerPlay () {
+  randomNumber = Math.floor(Math.random() * 3) + 1;
   if (randomNumber == 1) {
-    return rock
+    return "Rock";
   } else if (randomNumber == 2) {
-    return paper
+    return "Paper";
   } else {
-    return scissors
+    return "Scissors";
   }
 }
 
-function game (player, computer) {
-  if (player == computerPlay) {
-    return "It\’s a tie"
-  } else if (player > computerPlay) {
-    return "You Lose! Paper beats Rock"
-  } else {
-    return "You Win! Paper beats Rock"
-  }
-}
+ function playRound (playerSelection, computerSelection) {
+   if (computerSelection == "Scissors") {
+     return `You Win! ${playerSelection} beats ${computerSelection}`
+   } else if (computerSelection == "Paper") {
+     return `You Lose! ${computerSelection} beats ${playerSelection}`
+   } else {
+     return "Tie"
+   }
+ }
 
-const player = 3;
-const computer = computerPlay();
+const playerSelection = "Rock";
+const computerSelection = computerPlay();
+console.log(playRound(playerSelection, computerSelection));
