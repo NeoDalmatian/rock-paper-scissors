@@ -15,15 +15,15 @@ function computerPlay () {
 }
 
  function playRound (playerSelection, computerSelection) {
-   if (computerSelection == "Scissors") {
-     return `You Win! ${playerSelection} beats ${computerSelection}`
-   } else if (computerSelection == "Paper") {
-     return `You Lose! ${computerSelection} beats ${playerSelection}`
+   if (playerSelection == "Rock" && computerSelection == "Rock" || playerSelection == "Paper" && computerSelection == "Paper" || playerSelection == "Scissors" && computerSelection == "Scissors") {
+    return "It\'s a Tie!";
+   } else if (playerSelection == "Rock" && computerSelection == "Scissors" || playerSelection == "Paper" && computerSelection == "Rock" || playerSelection == "Scissors" && computerSelection == "Paper") {
+    return `You Win! ${playerSelection} beats ${computerSelection}`;
    } else {
-     return "Tie"
+    return `You Lose! ${computerSelection} beats ${playerSelection}`;
    }
  }
 
-const playerSelection = "Rock";
+const playerSelection = "Scissors";
 const computerSelection = computerPlay();
 console.log(playRound(playerSelection, computerSelection));
