@@ -10,12 +10,20 @@ function computerPlay () {
   }
 }
 
+//you can probably delete majority of these .toUpperCase() because you don't need them anymore. I think.
+
  function playRound (playerSelection, computerSelection = computerPlay()) {
-  if (playerSelection.toUpperCase() == "Rock".toUpperCase() && computerSelection.toUpperCase() == "Rock".toUpperCase() || playerSelection.toUpperCase() == "Paper".toUpperCase() && computerSelection.toUpperCase() == "Paper".toUpperCase() || playerSelection.toUpperCase() == "Scissors".toUpperCase() && computerSelection.toUpperCase() == "Scissors".toUpperCase()) {
+  if (playerSelection.toUpperCase() == "Rock".toUpperCase() && computerSelection.toUpperCase() == "Rock".toUpperCase() ||
+   playerSelection.toUpperCase() == "Paper".toUpperCase() && computerSelection.toUpperCase() == "Paper".toUpperCase() ||
+    playerSelection.toUpperCase() == "Scissors".toUpperCase() && computerSelection.toUpperCase() == "Scissors".toUpperCase()) {
    return "It\'s a Tie!";
-  } else if (playerSelection.toUpperCase() == "Rock".toUpperCase() && computerSelection.toUpperCase() == "Scissors".toUpperCase() || playerSelection.toUpperCase() == "Paper".toUpperCase() && computerSelection.toUpperCase() == "Rock".toUpperCase() || playerSelection.toUpperCase() == "Scissors".toUpperCase() && computerSelection.toUpperCase() == "Paper".toUpperCase()) {
+  } else if (playerSelection.toUpperCase() == "Rock".toUpperCase() && computerSelection.toUpperCase() == "Scissors".toUpperCase() ||
+   playerSelection.toUpperCase() == "Paper".toUpperCase() && computerSelection.toUpperCase() == "Rock".toUpperCase() ||
+    playerSelection.toUpperCase() == "Scissors".toUpperCase() && computerSelection.toUpperCase() == "Paper".toUpperCase()) {
    return "Win";
-  } else if (playerSelection.toUpperCase() == "Rock".toUpperCase() && computerSelection.toUpperCase() == "Paper".toUpperCase() || playerSelection.toUpperCase() == "Paper".toUpperCase() && computerSelection.toUpperCase() == "Scissors".toUpperCase() || playerSelection.toUpperCase() == "Scissors".toUpperCase() && computerSelection.toUpperCase() == "Rock".toUpperCase()) {
+  } else if (playerSelection.toUpperCase() == "Rock".toUpperCase() && computerSelection.toUpperCase() == "Paper".toUpperCase() ||
+   playerSelection.toUpperCase() == "Paper".toUpperCase() && computerSelection.toUpperCase() == "Scissors".toUpperCase() ||
+    playerSelection.toUpperCase() == "Scissors".toUpperCase() && computerSelection.toUpperCase() == "Rock".toUpperCase()) {
    return "Loss";
   } else {
    return "Wrong Input! Write either Rock, Paper or Scissors"
@@ -36,8 +44,10 @@ function game () {
     } else if (result == "Loss") {
       cPoints++
       console.log(`You Lost this round! Player:${pPoints} Computer: ${cPoints}`)
-    } else {
+    } else if (result == "It\'s a Tie!"){
       console.log("It\'s a Tie!")
+    } else {
+      console.log("Wrong Input! Write either Rock, Paper or Scissors")
     }
   }
 
