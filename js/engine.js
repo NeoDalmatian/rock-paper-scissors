@@ -1,32 +1,25 @@
-
 function computerPlay () {
   randomNumber = Math.floor(Math.random() * 3) + 1;
   if (randomNumber == 1) {
-    return "Rock";
+    return "ROCK";
   } else if (randomNumber == 2) {
-    return "Paper";
+    return "PAPER";
   } else {
-    return "Scissors";
+    return "SCISSORS";
   }
 }
 
-//you can probably delete majority of these .toUpperCase() because you don't need them anymore. I think.
-
- function playRound (playerSelection, computerSelection = computerPlay()) {
-  if (playerSelection.toUpperCase() == "Rock".toUpperCase() && computerSelection.toUpperCase() == "Rock".toUpperCase() ||
-   playerSelection.toUpperCase() == "Paper".toUpperCase() && computerSelection.toUpperCase() == "Paper".toUpperCase() ||
-    playerSelection.toUpperCase() == "Scissors".toUpperCase() && computerSelection.toUpperCase() == "Scissors".toUpperCase()) {
-   return "It\'s a Tie!";
-  } else if (playerSelection.toUpperCase() == "Rock".toUpperCase() && computerSelection.toUpperCase() == "Scissors".toUpperCase() ||
-   playerSelection.toUpperCase() == "Paper".toUpperCase() && computerSelection.toUpperCase() == "Rock".toUpperCase() ||
-    playerSelection.toUpperCase() == "Scissors".toUpperCase() && computerSelection.toUpperCase() == "Paper".toUpperCase()) {
+function playRound (playerSelection, computerSelection = computerPlay()) {
+  if (playerSelection == "ROCK" && computerSelection == "SCISSORS" ||
+   playerSelection == "PAPER" && computerSelection == "ROCK" ||
+    playerSelection == "SCISSORS" && computerSelection == "PAPER") {
    return "Win";
-  } else if (playerSelection.toUpperCase() == "Rock".toUpperCase() && computerSelection.toUpperCase() == "Paper".toUpperCase() ||
-   playerSelection.toUpperCase() == "Paper".toUpperCase() && computerSelection.toUpperCase() == "Scissors".toUpperCase() ||
-    playerSelection.toUpperCase() == "Scissors".toUpperCase() && computerSelection.toUpperCase() == "Rock".toUpperCase()) {
+  } else if (playerSelection == "ROCK" && computerSelection == "PAPER" ||
+   playerSelection == "PAPER" && computerSelection == "SCISSORS" ||
+    playerSelection == "SCISSORS" && computerSelection == "ROCK") {
    return "Loss";
   } else {
-   return "Wrong Input! Write either Rock, Paper or Scissors"
+    return "Tie";
   }
 }
 
@@ -35,7 +28,7 @@ function game () {
   let cPoints = 0;
 
   for (let i = 0; i < 5; i++) {
-    let playerSelection = prompt("Write either Rock, Paper or Scissors");
+    let playerSelection = prompt("Write either Rock, Paper or Scissors").toUpperCase();
     let result = playRound(playerSelection);
 
     if (result == "Win") {
@@ -44,7 +37,7 @@ function game () {
     } else if (result == "Loss") {
       cPoints++
       console.log(`You Lost this round! Player:${pPoints} Computer: ${cPoints}`)
-    } else if (result == "It\'s a Tie!"){
+    } else if (result == "Tie"){
       console.log("It\'s a Tie!")
     } else {
       console.log("Wrong Input! Write either Rock, Paper or Scissors")
@@ -59,4 +52,3 @@ function game () {
     console.log("It\s a Tie!")
   }
 }
-
