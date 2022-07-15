@@ -1,4 +1,5 @@
 
+//Function for picking randomly between "ROCK", "PAPER", "SCISSORS" and outputting result.
 function computerPlay () {
   randomNumber = Math.floor(Math.random() * 3) + 1;
   if (randomNumber == 1) {
@@ -10,6 +11,8 @@ function computerPlay () {
   }
 }
 
+//Function for comparing output of "computerPlay()"" and player input "playerSelection",
+//and depending on rules of game it outputs either "Win", "loss", "Tie" or "Wrong input" 
 function playRound (playerSelection, computerSelection = computerPlay()) {
   if (playerSelection == "ROCK" && computerSelection == "SCISSORS" ||
    playerSelection == "PAPER" && computerSelection == "ROCK" ||
@@ -28,6 +31,8 @@ function playRound (playerSelection, computerSelection = computerPlay()) {
   }
 }
 
+//Function that loops function "playRound()" 5 times with input of "playerSelection" 
+//being prompt, score is saved and winner is declared depending on rules of the game.
 function game () {
   let playerPoints = 0;
   let computerPoints = 0;
