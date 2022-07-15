@@ -1,3 +1,4 @@
+
 function computerPlay () {
   randomNumber = Math.floor(Math.random() * 3) + 1;
   if (randomNumber == 1) {
@@ -18,25 +19,29 @@ function playRound (playerSelection, computerSelection = computerPlay()) {
    playerSelection == "PAPER" && computerSelection == "SCISSORS" ||
     playerSelection == "SCISSORS" && computerSelection == "ROCK") {
    return "Loss";
-  } else {
+  } else if (playerSelection == "ROCK" && computerSelection == "ROCK" ||
+  playerSelection == "PAPER" && computerSelection == "PAPER" ||
+   playerSelection == "SCISSORS" && computerSelection == "SCISSORS") {
     return "Tie";
+  } else {
+    return "Wrong input"
   }
 }
 
 function game () {
-  let pPoints = 0;
-  let cPoints = 0;
+  let playerPoints = 0;
+  let computerPoints = 0;
 
   for (let i = 0; i < 5; i++) {
     let playerSelection = prompt("Write either Rock, Paper or Scissors").toUpperCase();
     let result = playRound(playerSelection);
 
     if (result == "Win") {
-      pPoints++
-      console.log(`You Won this round! Player:${pPoints} Computer: ${cPoints}`)
+      playerPoints++
+      console.log(`You Won this round! Player:${playerPoints} Computer: ${computerPoints}`)
     } else if (result == "Loss") {
-      cPoints++
-      console.log(`You Lost this round! Player:${pPoints} Computer: ${cPoints}`)
+      computerPoints++
+      console.log(`You Lost this round! Player:${playerPoints} Computer: ${computerPoints}`)
     } else if (result == "Tie"){
       console.log("It\'s a Tie!")
     } else {
@@ -44,9 +49,9 @@ function game () {
     }
   }
 
-  if (pPoints > cPoints) {
+  if (playerPoints > computerPoints) {
     console.log("You Win this game!")
-  } else if (pPoints < cPoints) {
+  } else if (playerPoints < computerPoints) {
     console.log("You Lost this game!")
   } else {
     console.log("It\s a Tie!")
