@@ -15,19 +15,19 @@ function computerPlay () {
 //and depending on rules of game it outputs either "Win", "loss", "Tie" or "Wrong input" 
 function playRound (playerSelection, computerSelection = computerPlay()) {
   if (playerSelection == "ROCK" && computerSelection == "SCISSORS" ||
-   playerSelection == "PAPER" && computerSelection == "ROCK" ||
-    playerSelection == "SCISSORS" && computerSelection == "PAPER") {
+      playerSelection == "PAPER" && computerSelection == "ROCK" ||
+      playerSelection == "SCISSORS" && computerSelection == "PAPER") {
    return "Win";
   } else if (playerSelection == "ROCK" && computerSelection == "PAPER" ||
-   playerSelection == "PAPER" && computerSelection == "SCISSORS" ||
-    playerSelection == "SCISSORS" && computerSelection == "ROCK") {
+      playerSelection == "PAPER" && computerSelection == "SCISSORS" ||
+      playerSelection == "SCISSORS" && computerSelection == "ROCK") {
    return "Loss";
   } else if (playerSelection == "ROCK" && computerSelection == "ROCK" ||
-  playerSelection == "PAPER" && computerSelection == "PAPER" ||
-   playerSelection == "SCISSORS" && computerSelection == "SCISSORS") {
+      playerSelection == "PAPER" && computerSelection == "PAPER" ||
+      playerSelection == "SCISSORS" && computerSelection == "SCISSORS") {
     return "Tie";
   } else {
-    return "Wrong input"
+    return "Wrong input";
   }
 }
 
@@ -50,6 +50,7 @@ function game () {
     } else if (result == "Tie"){
       console.log("It\'s a Tie!")
     } else {
+      --i
       console.log("Wrong Input! Write either Rock, Paper or Scissors")
     }
   }
