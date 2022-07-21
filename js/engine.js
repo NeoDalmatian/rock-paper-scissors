@@ -1,5 +1,3 @@
-
-//Function for picking randomly between "ROCK", "PAPER", "SCISSORS" and outputting result.
 function computerPlay () {
   randomNumber = Math.floor(Math.random() * 3) + 1;
   if (randomNumber == 1) {
@@ -11,8 +9,6 @@ function computerPlay () {
   }
 }
 
-//Function for comparing output of "computerPlay()"" and player input "playerSelection",
-//and depending on rules of game it outputs either "Win", "loss", "Tie" or "Wrong input" 
 function playRound (playerSelection, computerSelection = computerPlay()) {
   if (playerSelection == "ROCK" && computerSelection == "SCISSORS" ||
       playerSelection == "PAPER" && computerSelection == "ROCK" ||
@@ -50,9 +46,12 @@ displayWonRound.innerText = "You Won this round!";
 displayLossRound.innerText = "You Lost this round!";
 displayTieRound.innerText = "Tie!";
 
+displayWin.setAttribute("style", "color: green;")
+displayLoss.setAttribute("style", "color: red;")
+
 let playerScore = 0;
 let computerScore = 0;
-let result = "";
+let result = "Default";
 
 player.innerText = playerScore;
 computer.innerText = computerScore;
@@ -61,30 +60,15 @@ buttons.forEach((button) => {
   button.addEventListener("click", playButton)
 })
 
-// buttons.forEach((button) => {
-//   button.addEventListener("click", (e) => {
-//     if (e.path[0].id === "rock") {
-//       playRound("ROCK");
-//     } else if (e.path[0].id === "paper") {
-//       playRound("PAPER");
-//     } else if (e.path[0].id === "scissors") {
-//       playRound("SCISSORS");
-//     }
-
-//     displayRoundResult();
-//     displayResult();
-//   })
-// })
-
 function displayResult() {
   if (playerScore === 5) {
     display.removeChild(display.firstChild);
     display.appendChild(displayWin);
-    buttons.removeEventListener();
+    buttons.forEach((button) => button.removeEventListener("click", playButton));
   } else if (computerScore === 5) {
     display.removeChild(display.firstChild);
     display.appendChild(displayLoss);
-    buttons.removeEventListener();
+    buttons.forEach((button) => button.removeEventListener("click", playButton));
   } else {
     return
   } 

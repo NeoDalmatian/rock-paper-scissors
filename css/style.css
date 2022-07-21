@@ -16,7 +16,18 @@ body {
 #playerScore,
 #computerScore {
   display: flex;
-  gap: 10px;
+  align-items: center;
+  gap: 15px;
+}
+
+#player,
+#computer {
+  color: rgb(88, 88, 88);
+}
+
+#playerNumber,
+#computerNumber {
+  font-size: 40px;
 }
 
 .display {
@@ -24,7 +35,7 @@ body {
   padding: 0;
   font-size: 60px;
   text-align: center;
-  height: 300px;
+  height: 500px;
   display: flex;
   align-items: center;
   justify-content: center;
