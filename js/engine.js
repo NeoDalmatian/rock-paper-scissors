@@ -19,11 +19,13 @@ function playRound (playerSelection, computerSelection = computerPlay()) {
       playerSelection == "SCISSORS" && computerSelection == "PAPER") {
    //return "Win";
    console.log("Win")
+   return player.innerText = ++playerScore;
   } else if (playerSelection == "ROCK" && computerSelection == "PAPER" ||
       playerSelection == "PAPER" && computerSelection == "SCISSORS" ||
       playerSelection == "SCISSORS" && computerSelection == "ROCK") {
    //return "Loss";
    console.log("Loss")
+   return computer.innerText = ++computerScore;
   } else if (playerSelection == "ROCK" && computerSelection == "ROCK" ||
       playerSelection == "PAPER" && computerSelection == "PAPER" ||
       playerSelection == "SCISSORS" && computerSelection == "SCISSORS") {
@@ -35,8 +37,14 @@ function playRound (playerSelection, computerSelection = computerPlay()) {
 }
 
 const buttons = document.querySelectorAll("button");
-const player = document.querySelector("#player");
-const computer = document.querySelectorAll("#computer");
+const player = document.querySelector("#playerNumber");
+const computer = document.querySelector("#computerNumber");
+
+let playerScore = 0;
+let computerScore = 0;
+
+player.innerText = playerScore;
+computer.innerText = computerScore;
 
 buttons.forEach((button) => {
   button.addEventListener("click", (e) => {

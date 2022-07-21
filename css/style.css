@@ -13,6 +13,12 @@ body {
   font-size: 23px;
 }
 
+#playerScore,
+#computerScore {
+  display: flex;
+  gap: 10px;
+}
+
 .display {
   padding: 100px 0;
 }
