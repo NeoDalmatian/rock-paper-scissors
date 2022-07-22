@@ -1,12 +1,7 @@
+const computerChoice = ["ROCK", "PAPER", "SCISSORS"];
+
 function computerPlay () {
-  randomNumber = Math.floor(Math.random() * 3) + 1;
-  if (randomNumber == 1) {
-    return "ROCK";
-  } else if (randomNumber == 2) {
-    return "PAPER";
-  } else {
-    return "SCISSORS";
-  }
+  return computerChoice[Math.floor(Math.random() * computerChoice.length)];
 }
 
 function playRound (playerSelection, computerSelection = computerPlay()) {
