@@ -18,10 +18,11 @@ function playRound (playerSelection, computerSelection = computerPlay()) {
   }
 }
 
-const buttons = document.querySelectorAll("button");
+const buttons = document.querySelectorAll(".buttons");
 const player = document.querySelector("#playerNumber");
 const computer = document.querySelector("#computerNumber");
 const display = document.querySelector(".display");
+const reset = document.querySelector(".reset");
 
 const displayWin = document.createElement("h1");
 const displayLoss = document.createElement("h1");
@@ -48,6 +49,8 @@ computer.innerText = computerScore;
 buttons.forEach((button) => {
   button.addEventListener("click", playButton)
 })
+
+reset.addEventListener("click", () => window.location.reload())
 
 function displayResult() {
   if (playerScore === 5) {
