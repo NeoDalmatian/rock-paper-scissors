@@ -77,11 +77,11 @@ function displayRoundResult() {
 }
 
 function playButton(e) {
-  if (e.path[0].id === "rock") {
+  if (e.target.attributes.id.value === "rock") {
     playRound("ROCK");
-  } else if (e.path[0].id === "paper") {
+  } else if (e.target.attributes.id.value === "paper") {
     playRound("PAPER");
-  } else if (e.path[0].id === "scissors") {
+  } else if (e.target.attributes.id.value === "scissors") {
     playRound("SCISSORS");
   }
 
