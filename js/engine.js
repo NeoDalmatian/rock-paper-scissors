@@ -5,22 +5,16 @@ function computerPlay () {
 }
 
 function playRound (playerSelection, computerSelection = computerPlay()) {
-  if (playerSelection == "ROCK" && computerSelection == "SCISSORS" ||
-      playerSelection == "PAPER" && computerSelection == "ROCK" ||
-      playerSelection == "SCISSORS" && computerSelection == "PAPER") {
-   result = "Win";
-   return player.innerText = ++playerScore;
-  } else if (playerSelection == "ROCK" && computerSelection == "PAPER" ||
-      playerSelection == "PAPER" && computerSelection == "SCISSORS" ||
-      playerSelection == "SCISSORS" && computerSelection == "ROCK") {
-   result = "Loss";
-   return computer.innerText = ++computerScore;
-  } else if (playerSelection == "ROCK" && computerSelection == "ROCK" ||
-      playerSelection == "PAPER" && computerSelection == "PAPER" ||
-      playerSelection == "SCISSORS" && computerSelection == "SCISSORS") {
+  if (playerSelection === "ROCK" && computerSelection === "SCISSORS" ||
+      playerSelection === "PAPER" && computerSelection === "ROCK" ||
+      playerSelection === "SCISSORS" && computerSelection === "PAPER") {
+    result = "Win";
+    return player.innerText = ++playerScore;
+  } else if (playerSelection === computerSelection) {
     result = "Tie";
   } else {
-    return "Wrong input";
+    result = "Loss";
+    return computer.innerText = ++computerScore;
   }
 }
 
